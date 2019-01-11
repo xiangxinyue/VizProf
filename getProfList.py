@@ -27,3 +27,5 @@ def getProfList(uni_id):
     return l
 
 my_list = getProfList(1407)
+with open('data.json', 'w') as outfile:
+    json.dump(my_list, outfile)
