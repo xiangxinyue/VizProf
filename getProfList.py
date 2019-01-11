@@ -2,7 +2,7 @@ import requests
 import json
 import math
 
-# reference : https://github.com/Rodantny/Rate-My-Professor-Scraper-and-Search/blob/master/RMPClass.py#L24
+# reference : https://github.com/Rodantny/Rate-My-Professor-Scraper-and-Search
 
 def getProfList(uni_id):
     # get number of professors in the university
