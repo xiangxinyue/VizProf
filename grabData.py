@@ -37,17 +37,25 @@ def getOneProf(url):
 def get_prof_ids():
     with open('data.json', encoding='utf-8') as data_file:
         data = json.loads(data_file.read())
-        cs_profs_ids = []
+        # cs_profs_ids = []
+        ids = []
         for e in data:
-            if e['tDept'] == "Computer Science":
-                cs_profs_ids.append(e['tid'])
-    return cs_profs_ids
+            # if e['tDept'] == "Computer Science":
+                # cs_profs_ids.append(e['tid'])
+            ids.append(e['tid'])
+    # return cs_profs_ids
+    return ids
 
 
-with open('cs_prof_tags_data.json', 'w') as outfile:
+with open('all_prof_tags_data.json', 'w') as outfile:
+    ids = get_prof_ids()
+    l = len(ids)
+    n = 0
     for id in get_prof_ids():
         url = 'http://www.ratemyprofessors.com/ShowRatings.jsp?tid=' + str(id) + '&showMyProfs=true'
         # print(getOneProf(url))
-        i = 0
+        n += 1
         if getOneProf(url) != None:
             outfile.write(getOneProf(url))
+        process = "{:0.2f}".format(n/l * 100) + '%'
+        print(process)
