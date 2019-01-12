@@ -11,7 +11,7 @@ def getProfList(uni_id):
     "http://www.ratemyprofessors.com/filter/professor/?&page=1&filter=teacherlastname_sort_s+asc&query=*%3A*&queryoption=TEACHER&queryBy=schoolId&sid=" + str(
             uni_id))  # get request for page
     temp_jsonpage = json.loads(page.content)
-    num_of_prof = temp_jsonpage['remaining'] + 20  # get the number of professors at William Paterson University
+    num_of_prof = temp_jsonpage['remaining'] + 20  # get the number of professors
     
     
     num_of_pages = math.ceil(num_of_prof / 20)
