@@ -5,4 +5,4 @@ It is a fully fledged web application that we did data collection and data visua
 1. we wrote a web-spider to collect data from "ratemyprofessors.com" and got the data.
 2. we did visualize using d3 etc.
 3. made the html.
-
+## Web-Spider
