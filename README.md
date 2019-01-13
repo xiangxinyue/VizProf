@@ -7,5 +7,6 @@ It is a fully fledged web application that we did data collection and data visua
 3. made the html.
 ## Web-Spider
 ## Data Visulization
-//references:https://bl.ocks.org/hrecht/f84012ee860cb4da66331f18d588eee3
-//references:http://bl.ocks.org/enjalot/1203641
+//references_barchart2:https://bl.ocks.org/hrecht/f84012ee860cb4da66331f18d588eee3
+//references_piechart2:http://bl.ocks.org/enjalot/1203641
+//references_piechart3:http://bl.ocks.org/potherca/b9f8b3d0a24e0b20f16d
