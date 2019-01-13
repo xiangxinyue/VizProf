@@ -1,0 +1,82 @@
+<div id="chart"></div>
+
+<style>
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono);
+
+.slice text {
+   font-family: Droid Sans;
+}
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+var w = 600;
+var h = 600;
+var r = 300;
+var aColor = [
+    'rgb(178, 55, 56)',
+    'rgb(213, 69, 70)',
+    'rgb(230, 125, 126)',
+    'rgb(239, 183, 182)',
+    'rgb(213, 69, 70)',
+    'rgb(230, 125, 126)',
+    'rgb(239, 183, 182)'
+]
+var data = [
+    {
+                "department": "Biological Sciences",
+                "value": 3.733333333,
+        },
+            {
+                "department": "Chemistry",
+                "value": 3.639189189,
+        },
+            {
+                "department": "Computer Science",
+                "value": 3.440506329,
+        },
+            {
+                "department": "Earth Science",
+                "value": 3.71969697,
+        },
+            {
+                "department": "Mathematics&Statistics",
+                "value": 3.789473684,
+        },
+            {
+                "department": "Physics",
+                "value": 3.334567901,
+        },
+            {
+                "department": "Psychology",
+                "value": 3.434751773,
+        }
+];
+
+
+var vis = d3.select('#chart').append("svg:svg").data([data]).attr("width", w).attr("height", h).append("svg:g").attr("transform", "translate(" + r + "," + r + ")");
+
+var pie = d3.layout.pie().value(function(d){return d.value;});
+
+// Declare an arc generator function
+var arc = d3.svg.arc().outerRadius(r);
+
+// Select paths, use arc generator to draw
+var arcs = vis.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
+arcs.append("svg:path")
+    .attr("fill", function(d, i){return aColor[i];})
+    .attr("d", function (d) {return arc(d);})
+;
+
+// Add the text
+arcs.append("svg:text")
+    .attr("transform", function(d){
+        d.innerRadius = 100; /* Distance of label to the center*/
+        d.outerRadius = r;
+        return "translate(" + arc.centroid(d) + ")";}
+    )
+    .attr("text-anchor", "middle")
+    .text( function(d, i) {return data[i].department;})
+;
+</script>
